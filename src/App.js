@@ -1,24 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
+import Header from "./components/Header";
+import AddCounter from "./components/AddCounter";
+import Counter from "./components/Counter";
+import RemoveCounter from "./components/RemoveCounter";
+import Footer from "./components/Footer";
 
 function App() {
+  const [counters, setCounters] = useState([0]);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+
+      <AddCounter counters={counters} setCounters={setCounters} />
+
+      <Counter counters={counters} setCounters={setCounters} />
+
+      <RemoveCounter counters={counters} setCounters={setCounters} />
+
+      <Footer />
     </div>
   );
 }
